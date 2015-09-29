@@ -34,9 +34,8 @@ public class Hand {
 	private static Deck dJoker = new Deck();
 
 	public Hand()
-	{
-		
-	}
+	{}
+	
 	public void  AddCardToHand(Card c)
 	{
 		if (this.CardsInHand == null)

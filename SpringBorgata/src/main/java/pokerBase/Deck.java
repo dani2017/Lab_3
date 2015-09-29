@@ -77,6 +77,14 @@ public class Deck {
 		cards.remove(0);
 		return FirstCard;
 	}
+	//Creates a constructor for RemoveCard; To be used in Junit
+	public int RemoveCard(){
+		//Used for Junit
+		Card Temp_Card = cards.get(0);
+		cards.remove(0);
+		return cards.size();
+		
+	}
 
 	public int getTotalCards() {
 		// Returns the total number of cards still in the deck

@@ -12,7 +12,13 @@ public class Deck_Test extends Deck {
 		assertTrue(getTotalCards() == 52);
 		
 		assertFalse(getTotalCards()==51);
+		}
+	
+	@Test
+	public void Test_Draw_Card(){
 		
+		//Tests Draw Card Function
+		assertTrue(RemoveCard()==51);
 	}
 
 }
