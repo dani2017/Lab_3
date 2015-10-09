@@ -29,6 +29,7 @@ public class Hand {
 	private boolean bScored = false;
 
 	private boolean Flush;
+	private boolean Natural_Flush;
 	private boolean Straight;
 	private boolean Ace;
 	private static Deck dJoker = new Deck();
@@ -126,9 +127,22 @@ public class Hand {
 		if (CardsInHand.get(eCardNo.FirstCard.getCardNo()).getRank() == eRank.ACE) {
 			Ace = true;
 		}
-
-		// Flush Evaluation
-		if (CardsInHand.get(eCardNo.FirstCard.getCardNo()).getSuit() == CardsInHand
+		
+		//Checks for natural Flush
+		if(CardsInHand.get(eCardNo.FirstCard.getCardNo()).getRank()!= eRank.JOKER){
+			if (CardsInHand.get(eCardNo.FirstCard.getCardNo()).getSuit() == CardsInHand.get(eCardNo.SecondCard.getCardNo()).getSuit()
+				&& CardsInHand.get(eCardNo.FirstCard.getCardNo()).getSuit() == CardsInHand
+						.get(eCardNo.ThirdCard.getCardNo()).getSuit()
+				&& CardsInHand.get(eCardNo.FirstCard.getCardNo()).getSuit() == CardsInHand
+						.get(eCardNo.FourthCard.getCardNo()).getSuit()
+				&& CardsInHand.get(eCardNo.FirstCard.getCardNo()).getSuit() == CardsInHand
+						.get(eCardNo.FifthCard.getCardNo()).getSuit()) {Natural_Flush = true;} 
+			else {Natural_Flush = false;}
+			}
+			
+		// Flush Evaluation W/ Joker
+		if(CardsInHand.get(eCardNo.FirstCard.getCardNo()).getRank()== eRank.JOKER){
+			if (CardsInHand.get(eCardNo.FirstCard.getCardNo()).getSuit() == CardsInHand
 				.get(eCardNo.SecondCard.getCardNo()).getSuit()
 				&& CardsInHand.get(eCardNo.FirstCard.getCardNo()).getSuit() == CardsInHand
 						.get(eCardNo.ThirdCard.getCardNo()).getSuit()
@@ -138,7 +152,7 @@ public class Hand {
 						.get(eCardNo.FifthCard.getCardNo()).getSuit()) {
 			Flush = true;
 		} else {
-			Flush = false;
+			Flush = false;}
 		}
 
 		// five of a Kind
@@ -170,6 +184,7 @@ public class Hand {
 			} else {
 				Straight = false;
 			}
+			
 			// Looks for straight without Ace
 		} else if (CardsInHand.get(eCardNo.FirstCard.getCardNo()).getRank()
 				.getRank() == CardsInHand.get(eCardNo.SecondCard.getCardNo())
