@@ -85,8 +85,8 @@ public final class Card {
 		   int Cno1 = c1.getRank().getRank();
 		   int Cno2 = c2.getRank().getRank();
 
-		   /*For descending order*/
-		   return Cno2 - Cno1;
+		   /*For asending order*/
+		   return Cno1-Cno2;
 
 	   }};
 
