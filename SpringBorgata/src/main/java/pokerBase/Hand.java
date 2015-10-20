@@ -39,6 +39,7 @@ public class Hand {
 	@XmlElement
 	private int Kicker;
 
+	@SuppressWarnings("unused")
 	private boolean bScored = false;
 
 	private boolean Flush;
@@ -56,6 +57,7 @@ public class Hand {
 	private boolean Straight_Flush;
 	
 	
+	@SuppressWarnings("unused")
 	private static Deck dJoker = new Deck();
 
 	public Hand()
@@ -305,7 +307,7 @@ public class Hand {
 		
 		// High Card
 		//	I'll give you this one :)
-		else if(JokerInHand){
+		else if(JokerInHand != true){
 			ScoreHand(eHandStrength.HighCard,
 					CardsInHand.get(eCardNo.FirstCard.getCardNo()).getRank()
 							.getRank(), 0,
